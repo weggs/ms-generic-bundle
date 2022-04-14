@@ -1,0 +1,26 @@
+{
+    "name": "weggs/ms-generic-bundle",
+    "description": "Some generic service that is reused on multiple micro-services",
+    "type": "symfony-bundle",
+    "require": {
+        "php": ">=8.1",
+        "symfony/framework-bundle": "^5.3",
+        "api-platform/core": "*",
+        "doctrine/orm": "2.10.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Weggs\\GenericBundle\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex",
+            "email": "alexandre@weggs.fr"
+        }
+    ],
+    "require-dev": {
+        "rector/rector": "^0.12.13"
+    }
+}

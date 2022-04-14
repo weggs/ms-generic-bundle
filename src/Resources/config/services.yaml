@@ -1,0 +1,36 @@
+parameters:
+    availableLocales:
+        - fr
+        - es
+        - pt
+        - nl
+        - en
+        - it
+        - de
+    'env(WEGGS_DISABLE_HTTP)': 'false'
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+  Weggs\GenericBundle\Service\TokenProviderService:
+    arguments:
+      $keycloakBaseUrl: '%weggs_generic.abstract_request.keycloak_base_url%'
+      $keycloakClientId: '%weggs_generic.abstract_request.keycloak_client_id%'
+      $keycloakClientSecret: '%weggs_generic.abstract_request.keycloak_client_secret%'
+      $redisKey: '%weggs_generic.abstract_request.redis_token_key%'
+      $redisUrl: '%weggs_generic.abstract_request.redis_url%'
+
+  Weggs\GenericBundle\Service\AbstractRequestService:
+    abstract:  true
+    calls:
+      - setTokenProviderService: ['@Weggs\GenericBundle\Service\TokenProviderService']
+      - setParameter: ['%env(WEGGS_DISABLE_HTTP)%']
+
+  Weggs\GenericBundle\Service\TranslatableService:
+
+  Weggs\GenericBundle\Doctrine\TranslationExtension:
+
+  Weggs\GenericBundle\Filter\LocaleFilter:
+    arguments:
+      - '@Weggs\GenericBundle\Service\TranslatableService'

@@ -1,4 +1,4 @@
-# Weggs symfon generic bundle
+# Weggs symfony generic bundle
 
 ## Documentation
 - [Installation](#installation)
@@ -38,7 +38,7 @@ weggs_generic:
 add the environement variable you need exemple:
 ```
 KEYCLOAK_BASE_URL="http://dockerize_keycloak:8080/auth/realms/master/"
-KEYCLOAK_CLIENT_ID="my_project-connect"
+KEYCLOAK_CLIENT_ID="my_client-connect"
 KEYCLOAK_CLIENT_SECRET="e3842784-eafa-4276-a452-ace301a05f38"
 
 REDIS_URL="redis://dockerize_redis:6379/mymicroservice"
@@ -52,7 +52,7 @@ framework:
     http_client:
         scoped_clients:
             my.client:
-                base_uri: '%env(MY_MS_URI)%' # put it in your env
+                base_uri: 'http://dockerize_nginx/mymicroservice/' # put it in your env
                 headers:
                     Accept: 'application/json'
 ```
