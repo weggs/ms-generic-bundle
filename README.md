@@ -17,7 +17,7 @@ add the vcs source in the composer.json
 install the package
 
 ```
-composer require weggs/ms-bundle:dev-master
+composer require weggs/ms-generic-bundle:dev-master
 ```
 ## Abstract request service
 
