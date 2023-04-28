@@ -46,7 +46,7 @@ abstract class AbstractRequestService
                 return [];
             }
 
-            return json_decode($this->lastAuthenticatedRequest->getContent(false), true, 512, JSON_THROW_ON_ERROR);
+            return json_decode($this->lastAuthenticatedRequest->getContent(), true, 512, JSON_THROW_ON_ERROR);
         } catch (ClientExceptionInterface) {
             $options['headers']['Authorization'] = 'Bearer '.$this->tokenProviderService->refreshToken();
             $this->lastAuthenticatedRequest = $this->httpClient->request($method, $url, $options);
