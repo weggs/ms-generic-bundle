@@ -39,7 +39,7 @@ add the environement variable you need exemple:
 ```
 KEYCLOAK_BASE_URL="http://dockerize_keycloak:8080/auth/realms/master/"
 KEYCLOAK_CLIENT_ID="my_client-connect"
-KEYCLOAK_CLIENT_SECRET="e3842784-eafa-4276-a452-ace301a05f38"
+KEYCLOAK_CLIENT_SECRET="my_secret_key"
 
 REDIS_URL="redis://dockerize_redis:6379/mymicroservice"
 ```
